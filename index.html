@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
     <div id="main"></div>
@@ -12,7 +17,6 @@
         var tr1 = document.createElement("tr");
         var namae = document.createElement("th");
         namae.textContent = "Achievement Name";
-        namae.marginRight = "5px";
         tr1.appendChild(namae);
         var descrio = document.createElement("th");
         descrio.textContent = "Percentage of Players With Achievement";
