@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background: black;
+      }
+      .description {
+        color: grey;
+      }
+      .name {
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .box {
+        border: 1px solid white;
+        display: inline-block;
+        border-radius: 3px;
+        margin: 3px;
+        min-width: 100px;
+        padding: 5px;
+      }
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main"></div>
+    <script type="text/javascript">
+      var elem = document.querySelector("#main");
+      function a(obj){
+        var achievements = obj.achievementpercentages.achievements;
+        var main = document.createElement("div");
+        main.className = "center";
+        for(var i=0,j=achievements.length;i<j;i++){
+          var ach = achievements[i];
+          var div = document.createElement("div");
+          var div1 = document.createElement("div");
+          var div2 = document.createElement("div");
+          div1.className = "name";
+          div2.className = "description";
+          div.className = "box";
+          div.appendChild(div1);
+          div.appendChild(div2);
+          div1.textContent = ach.name;
+          div2.textContent = ach.percent + "%";
+          main.appendChild(div);
+        }
+        window.elem.appendChild(main);
+      }
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=250900&format=json&jsonp=a";
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>
